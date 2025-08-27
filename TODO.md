@@ -49,7 +49,7 @@
 ### Model & Orchestration
 - [ ] Pin default adapter: ; keep Deep as fallback (config flag).
 - [ ] Add  (cross-field constraints; CKD/pregnancy blocks; statin/grapefruit).
-- [ ] Update  to run against ruleset v2.
+- [x] Update  to run against ruleset v2.
 
 ### Logging & Signatures
 - [ ] Implement  (sha256(file) → sidecar + audit log).
