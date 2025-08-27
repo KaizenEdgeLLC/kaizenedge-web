@@ -17,7 +17,7 @@
 ### Stripe Integration (Phase 1.5 → Day 2–3)
 - [ ] Add backend **/api/checkout/session** (creates Checkout Session; idempotency key; logs).
 - [ ] Add backend **/api/stripe/webhook** (verify signature; write event logs under reports/stripe/; map checkout.session.completed → user active).
-- [ ] Create **.env.sample** (STRIPE_PUBLISHABLE_KEY, STRIPE_SECRET_KEY) + README for local setup.
+- [x] Create **.env.sample** (STRIPE_PUBLISHABLE_KEY, STRIPE_SECRET_KEY) + README for local setup.
 - [ ] Add **billing status** field in user model; backfill migration (if needed).
 
 ### Inventory & Pricing (toward real data)
