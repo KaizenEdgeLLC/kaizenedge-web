@@ -1,0 +1,35 @@
+name: Guardrails FDA Eval
+on:
+  pull_request:
+    branches: [ main, develop ]
+jobs:
+  eval:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: Cache venv
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+      - name: Install deps
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install -r requirements.txt
+          pip install 'jsonschema>=4.22,<5'
+      - name: Run FDA guardrail eval
+        run: |
+          source .venv/bin/activate
+          python models/eval_guardrails.py | tee reports/ci_eval_output.txt
+          grep -q "'fail': 0" reports/ci_eval_output.txt
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: guardrail-reports
+          path: |
+            reports/guardrail_eval_report.json
+            reports/guardrail_eval_report.json.sha256
+            reports/ci_eval_output.txt
