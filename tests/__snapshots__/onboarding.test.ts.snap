@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`KaizenEdge Fitness Onboarding — validation & unlocks validates and computes unlocks deterministically 1`] = `
+{
+  "ascensionCandidate": true,
+  "flagCount": 10,
+  "flags": [
+    "freq_4plus",
+    "intensity_high",
+    "style_martial_or_calisthenics",
+    "timeline_90plus",
+    "flavor_japan_or_korea",
+    "snack_gamer",
+    "timing_night_owl",
+    "gamification_on",
+    "too_easy_trend",
+    "tech_biofeedback_interest",
+  ],
+  "otherCandidates": [
+    "zen",
+    "cybernetic",
+  ],
+  "unlockReason": [
+    "Trains ≥4 days/week",
+    "High intensity preference",
+    "Style preference includes martial arts or calisthenics",
+    "Target timeline ≥ 90 days",
+    "Cultural flavors include Japan/Korea",
+    "Snack style suggests gamer snacks",
+    "Night-owl timing",
+    "Gamification opt-in enabled",
+    "Multiple 'too easy' feedback entries",
+    "Health device integrations connected",
+  ],
+}
+`;

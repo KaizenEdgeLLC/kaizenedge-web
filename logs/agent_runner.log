@@ -231,3 +231,13 @@ OK
 [KE] Signature check (if any)…
 [KE] Done.
 
+[pre-commit] Running FDA guardrail eval...
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.13it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.88it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.71it/s]
+[pre-commit] ✅ All green.
+[main cd4b0e9] chore: scaffold rulesets/v2.json — auto by todo_runner
+ 2 files changed, 88 insertions(+), 1 deletion(-)
+

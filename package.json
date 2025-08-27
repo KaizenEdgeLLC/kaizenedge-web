@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --ci --runInBand"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +17,13 @@
     "apps/*",
     "packages/*",
     "models"
-  ]
+  ],
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.9.2"
+  }
 }
