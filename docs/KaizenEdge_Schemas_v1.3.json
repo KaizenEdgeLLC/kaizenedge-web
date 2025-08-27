@@ -1,0 +1,187 @@
+{
+  "Profile": {
+    "mode": "Lifestyle | Clinical",
+    "age": "number",
+    "life_stage": "Child|Adult|Senior|Pregnant|Breastfeeding|Other",
+    "sex": "Female|Male|Other|PreferNotSay",
+    "height_cm": "number",
+    "weight_kg": "number",
+    "activity_level": "Sedentary|Light|Moderate|Active|Athlete",
+    "goals": [
+      "FatLoss|Maintenance|MuscleGain|Endurance|GeneralHealth"
+    ],
+    "medical_conditions": [
+      "Diabetes|Hypertension|Celiac|CKD|Cardiac|None|Other"
+    ],
+    "physical_profile": "Beginner|Intermediate|Advanced|LimitedMobility",
+    "cultural_prefs": {
+      "regions": [],
+      "traditions": [],
+      "flavors": []
+    },
+    "religious_diet": "None|Kosher|Halal|HinduVegetarian|BuddhistVegetarian",
+    "allergens_banned": [
+      "Milk",
+      "Egg",
+      "Fish",
+      "Shellfish",
+      "TreeNuts",
+      "Peanuts",
+      "Wheat",
+      "Soy",
+      "Sesame",
+      "Mustard",
+      "Celery",
+      "Lupin",
+      "Sulphites"
+    ],
+    "diets": [
+      "Vegan|Vegetarian|Pescatarian|Keto|Paleo|LowCarb|LowFat|HighProtein|Mediterranean"
+    ],
+    "budget_level": "Low|Medium|High",
+    "retailers": [
+      "Costco",
+      "Walmart",
+      "Instacart",
+      "TraderJoes",
+      "AmazonFresh",
+      "Other"
+    ],
+    "pantry": [
+      "string"
+    ]
+  },
+  "Recipe": {
+    "id": "string",
+    "title": "string",
+    "description": "string",
+    "culture": {
+      "region": "string",
+      "tradition": "string",
+      "flavors": [
+        "string"
+      ]
+    },
+    "diet_allergen": {
+      "diets": [
+        "string"
+      ],
+      "allergens_excluded": [
+        "string"
+      ]
+    },
+    "nutrition_estimate": {
+      "calories": "number",
+      "protein_g": "number",
+      "carbs_g": "number",
+      "fat_g": "number",
+      "sodium_mg": "number",
+      "sugar_g": "number",
+      "fiber_g": "number"
+    },
+    "ingredients": [
+      {
+        "name": "string",
+        "qty": "string",
+        "notes": "string?"
+      }
+    ],
+    "steps": [
+      "string"
+    ],
+    "substitutions": [
+      {
+        "for": "string",
+        "substitute": "string",
+        "ratio": "string?",
+        "cultural_note": "string"
+      }
+    ],
+    "labels": [
+      "GlutenFree|DiabeticFriendly|LowSodium|Vegan|EcoFriendly|Halal|Kosher|PregnancySafe"
+    ],
+    "source_style_note": "string",
+    "version": "string"
+  },
+  "MealPlanDay": {
+    "day": "1-7",
+    "meals": [
+      {
+        "name": "Breakfast|Lunch|Dinner|Snack",
+        "recipe_id": "string",
+        "servings": "number"
+      }
+    ],
+    "targets": {
+      "calories": "number",
+      "protein_g": "number",
+      "carbs_g": "number",
+      "fat_g": "number",
+      "sodium_mg": "number",
+      "sugar_g": "number"
+    }
+  },
+  "WorkoutPlan": {
+    "type": "Strength|Endurance|Basketball|Soccer|Yoga|Pilates|Mobility",
+    "goal": "string",
+    "schedule": "e.g., 4 days/week",
+    "microcycle_weeks": "number",
+    "sessions": [
+      {
+        "name": "string",
+        "blocks": [
+          {
+            "drill": "string",
+            "sets": "number",
+            "reps": "string",
+            "time": "string?"
+          }
+        ]
+      }
+    ],
+    "ability_requirements": "string",
+    "safety_notes": "string",
+    "nutrition_link": "string"
+  },
+  "GroceryCart": {
+    "retailer": "string",
+    "items": [
+      {
+        "sku": "string?",
+        "name": "string",
+        "qty": "string",
+        "unit_price": "number?",
+        "subtotal": "number?"
+      }
+    ],
+    "substitutions": [
+      {
+        "original": "string",
+        "new_item": "string",
+        "reason": "OOS|Safer|Cheaper",
+        "note": "string"
+      }
+    ],
+    "estimated_total": "number"
+  },
+  "GuardrailReport": {
+    "hard_fail": "boolean",
+    "passes": [
+      "Allergen",
+      "MedicalThresholds",
+      "ReligiousDiet",
+      "FoodSafety",
+      "WorkoutSafety",
+      "MentalHealth",
+      "Privacy"
+    ],
+    "flags": [
+      {
+        "type": "Allergen|Medical|Religious|Workout|Mental|Privacy|Sustainability",
+        "detail": "string",
+        "action": "Fixed|AlternativeSuggested|UserAttention"
+      }
+    ],
+    "notes": "string"
+  }
+}

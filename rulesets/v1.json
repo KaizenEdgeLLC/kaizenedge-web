@@ -1,0 +1,18 @@
+{
+  "version": "v1",
+  "notes": "Initial pinned thresholds for FDA-grade guardrails. Update via PR with citations.",
+  "thresholds": {
+    "hypertension_sodium_mg_per_day": 1500,
+    "per_recipe_sodium_mg_max_default": 700,
+    "diabetes_added_sugars_high_g": 15,
+    "ckd_potassium_mg_per_day_default": 2000,
+    "ckd_protein_g_per_day_max_default": 60,
+    "vitamin_a_pregnancy_ul_rae_ug": 3000,
+    "poultry_min_cook_temp_c": 74
+  },
+  "lists": {
+    "pregnancy_high_mercury_fish": ["swordfish","shark","king mackerel","tilefish"],
+    "warfarin_high_vitk_foods": ["kale","spinach","collard greens","turnip greens","mustard greens"],
+    "major_allergens": ["Peanuts","Tree Nuts","Shellfish","Sesame","Milk","Eggs","Wheat","Soy"]
+  }
+}
