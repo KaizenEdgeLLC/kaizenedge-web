@@ -1,0 +1,16 @@
+# OS junk
+.DS_Store
+docs/.DS_Store
+docs/validation/.DS_Store
+docs/validation/v1/.DS_Store
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local eval outputs (we archive signed reports under docs/, not here)
+reports/
+
+# Node
+node_modules/
