@@ -1,0 +1,1832 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kaizenedge.ai/schemas/input_taxonomy_v1.json",
+  "title": "KaizenEdge Input Taxonomy v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "account_locale_consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "primary_language": {
+          "type": "string",
+          "pattern": "^[a-z]{2}$"
+        },
+        "secondary_languages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z]{2}$"
+          }
+        },
+        "units": {
+          "type": "string",
+          "enum": [
+            "metric",
+            "imperial"
+          ]
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "accessibility_needs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "screen_reader",
+              "large_text",
+              "dyslexia_font",
+              "color_blind_safe",
+              "captions"
+            ]
+          }
+        },
+        "consents": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "marketing_emails": {
+              "type": "boolean"
+            },
+            "data_processing": {
+              "type": "boolean"
+            },
+            "device_data_sharing": {
+              "type": "boolean"
+            },
+            "clinical_use_participation": {
+              "type": "boolean"
+            }
+          }
+        },
+        "notifications": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "channels": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "push",
+                  "email",
+                  "sms"
+                ]
+              }
+            },
+            "frequency": {
+              "type": "string",
+              "enum": [
+                "realtime",
+                "daily",
+                "weekly"
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "units",
+        "timezone"
+      ]
+    },
+    "demographics_anthropometrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "birth_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "sex_at_birth": {
+          "type": "string",
+          "enum": [
+            "female",
+            "male",
+            "intersex",
+            "prefer_not_to_say"
+          ]
+        },
+        "gender_identity": {
+          "type": "string"
+        },
+        "height": {
+          "type": "number",
+          "minimum": 30,
+          "maximum": 300
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 3,
+          "maximum": 500
+        },
+        "body_fat_pct": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 75
+        },
+        "waist_circumference": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 300
+        },
+        "hip_circumference": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 300
+        },
+        "life_stage": {
+          "type": "string",
+          "enum": [
+            "infant",
+            "toddler",
+            "child",
+            "adolescent",
+            "adult",
+            "older_adult"
+          ]
+        },
+        "pregnancy_status": {
+          "type": "string",
+          "enum": [
+            "not_pregnant",
+            "pregnant",
+            "postpartum"
+          ]
+        },
+        "pregnancy_trimester": {
+          "type": "string",
+          "enum": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "lactation_status": {
+          "type": "boolean"
+        }
+      }
+    },
+    "clinical_conditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "metabolic": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "type1_diabetes",
+              "type2_diabetes",
+              "prediabetes",
+              "metabolic_syndrome",
+              "pcos"
+            ]
+          }
+        },
+        "cardiovascular": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "hypertension",
+              "hyperlipidemia",
+              "coronary_artery_disease",
+              "heart_failure"
+            ]
+          }
+        },
+        "renal": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ckd_stage_1",
+              "ckd_stage_2",
+              "ckd_stage_3",
+              "ckd_stage_4",
+              "ckd_stage_5",
+              "nephrotic_syndrome"
+            ]
+          }
+        },
+        "gastrointestinal": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "celiac_disease",
+              "crohns_disease",
+              "ulcerative_colitis",
+              "ibs",
+              "gerd",
+              "pancreatitis"
+            ]
+          }
+        },
+        "hepatic": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "nafld",
+              "nash",
+              "hepatitis_a",
+              "hepatitis_b",
+              "hepatitis_c",
+              "cirrhosis"
+            ]
+          }
+        },
+        "respiratory": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "asthma",
+              "copd",
+              "sleep_apnea"
+            ]
+          }
+        },
+        "endocrine": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "hypothyroidism",
+              "hyperthyroidism",
+              "adrenal_insufficiency"
+            ]
+          }
+        },
+        "neurologic": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "epilepsy",
+              "migraine"
+            ]
+          }
+        },
+        "allergy_immunology": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "anaphylaxis_history"
+            ]
+          }
+        },
+        "oncology": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "active_treatment"
+            ]
+          }
+        },
+        "bone_joint": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "osteoporosis",
+              "osteoarthritis",
+              "gout"
+            ]
+          }
+        },
+        "eating_disorders_active": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "anorexia_nervosa",
+              "bulimia_nervosa",
+              "binge_eating_disorder"
+            ]
+          }
+        },
+        "pregnancy_risk_flags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "gestational_diabetes",
+              "preeclampsia",
+              "hyperemesis_gravidarum"
+            ]
+          }
+        }
+      }
+    },
+    "medications": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "anticoagulants": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "warfarin",
+              "apixaban",
+              "rivaroxaban"
+            ]
+          }
+        },
+        "antiplatelets": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "clopidogrel",
+              "aspirin_81_plus"
+            ]
+          }
+        },
+        "statins": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "atorvastatin",
+              "simvastatin",
+              "lovastatin"
+            ]
+          }
+        },
+        "antihypertensives": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ace_inhibitor",
+              "arb",
+              "beta_blocker",
+              "calcium_channel_blocker",
+              "diuretic"
+            ]
+          }
+        },
+        "antidiabetics": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "insulin",
+              "metformin",
+              "glp1_ra",
+              "sglt2_inhibitor",
+              "sulfonylurea"
+            ]
+          }
+        },
+        "thyroid_meds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "levothyroxine",
+              "liothyronine"
+            ]
+          }
+        },
+        "anticonvulsants": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "phenytoin",
+              "carbamazepine"
+            ]
+          }
+        },
+        "mao_inhibitors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "phenelzine",
+              "tranylcypromine"
+            ]
+          }
+        },
+        "corticosteroids_systemic": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "prednisone",
+              "dexamethasone"
+            ]
+          }
+        },
+        "immunosuppressants": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "tacrolimus",
+              "cyclosporine"
+            ]
+          }
+        },
+        "other_caution": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "lithium",
+              "methotrexate",
+              "digoxin"
+            ]
+          }
+        },
+        "otc_supplements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "vitamin_a",
+              "vitamin_d",
+              "iron",
+              "calcium",
+              "fish_oil",
+              "st_johns_wort",
+              "ginkgo"
+            ]
+          }
+        }
+      }
+    },
+    "allergens_intolerances": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "major_allergens": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "peanuts",
+              "tree_nuts",
+              "milk",
+              "egg",
+              "fish",
+              "crustacean_shellfish",
+              "wheat",
+              "soy",
+              "sesame"
+            ]
+          }
+        },
+        "other_allergens": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "sulfites",
+              "celery",
+              "mustard",
+              "lupin",
+              "mollusks"
+            ]
+          }
+        },
+        "intolerances": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "lactose",
+              "fructose",
+              "histamine",
+              "fodmap_sensitivity",
+              "caffeine_sensitivity"
+            ]
+          }
+        }
+      }
+    },
+    "dietary_patterns": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "general": {
+          "type": "string",
+          "enum": [
+            "omnivore",
+            "flexitarian",
+            "vegetarian_lacto_ovo",
+            "vegetarian_lacto",
+            "vegetarian_ovo",
+            "pescatarian",
+            "vegan"
+          ]
+        },
+        "medical_restricted": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "gluten_free",
+              "low_fodmap",
+              "renal_friendly",
+              "diabetic_friendly",
+              "low_purine",
+              "low_oxalate"
+            ]
+          }
+        },
+        "religious_cultural": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "kosher",
+              "halal",
+              "jain",
+              "buddhist_vegetarian"
+            ]
+          }
+        },
+        "metabolic_goal": {
+          "type": "string",
+          "enum": [
+            "none",
+            "ketogenic",
+            "low_carb",
+            "low_fat",
+            "mediterranean"
+          ]
+        },
+        "metabolic_targets": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "target_carbs_g_per_day": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 600
+            },
+            "target_fat_g_per_day": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 300
+            }
+          }
+        },
+        "sodium_pattern": {
+          "type": "string",
+          "enum": [
+            "none",
+            "dash",
+            "low_sodium"
+          ]
+        },
+        "alcohol_policy": {
+          "type": "string",
+          "enum": [
+            "allowed",
+            "restricted",
+            "disallowed"
+          ]
+        }
+      },
+      "required": [
+        "general"
+      ]
+    },
+    "nutrition_targets": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "energy_kcal_per_day": {
+          "type": "integer",
+          "minimum": 600,
+          "maximum": 6000
+        },
+        "protein_g_per_day": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 400
+        },
+        "protein_g_per_meal_min": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 150
+        },
+        "protein_g_per_day_max_ckd": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 200
+        },
+        "carbs_g_per_day": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 800
+        },
+        "sugars_g_per_day_max": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 400
+        },
+        "net_carbs_g_per_day": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 800
+        },
+        "fat_g_per_day": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 300
+        },
+        "sat_fat_g_per_day": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 150
+        },
+        "fiber_g_per_day": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 200
+        },
+        "sodium_mg_per_day": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8000
+        },
+        "sodium_mg_per_recipe_max": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5000
+        },
+        "potassium_mg_per_day": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8000
+        },
+        "phosphorus_mg_per_day": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5000
+        },
+        "micronutrients": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "vitamin_a_rae_ug": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "vitamin_d_iu": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "vitamin_e_mg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "vitamin_k_ug": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2000
+            },
+            "vitamin_c_mg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5000
+            },
+            "thiamin_mg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "riboflavin_mg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "niacin_mg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "vitamin_b6_mg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "folate_ug_dfe": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "vitamin_b12_ug": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "calcium_mg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "iron_mg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "magnesium_mg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "zinc_mg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "iodine_ug": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "selenium_ug": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "copper_mg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            },
+            "manganese_mg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000
+            }
+          }
+        }
+      }
+    },
+    "taste_ingredients_preferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "disliked_flavors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "bitter",
+              "sour",
+              "spicy",
+              "sweet"
+            ]
+          }
+        },
+        "spice_tolerance": {
+          "type": "string",
+          "enum": [
+            "none",
+            "mild",
+            "medium",
+            "hot"
+          ]
+        },
+        "cuisines": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "american_southern",
+              "american_new_england",
+              "tex_mex",
+              "mexican_yucatan",
+              "mexican_oaxacan",
+              "mexican_northern",
+              "caribbean_puerto_rican",
+              "caribbean_cuban",
+              "caribbean_dominican",
+              "caribbean_jamaican",
+              "central_american_guatemalan",
+              "central_american_salvadoran",
+              "south_american_peruvian",
+              "south_american_brazilian",
+              "south_american_argentinian",
+              "south_american_colombian",
+              "european_italian",
+              "european_french",
+              "european_spanish",
+              "european_portuguese",
+              "european_greek",
+              "european_turkish",
+              "european_german",
+              "european_nordic",
+              "european_eastern",
+              "middle_eastern_levantine",
+              "middle_eastern_persian",
+              "middle_eastern_gulf",
+              "south_asian_north_indian",
+              "south_asian_south_indian",
+              "pakistani",
+              "bangladeshi",
+              "sri_lankan",
+              "southeast_asian_thai",
+              "southeast_asian_vietnamese",
+              "filipino",
+              "indonesian",
+              "malaysian",
+              "singaporean",
+              "east_asian_chinese",
+              "east_asian_japanese",
+              "east_asian_korean",
+              "east_asian_taiwanese",
+              "african_ethiopian",
+              "african_moroccan",
+              "african_west",
+              "african_south",
+              "oceanian_australian",
+              "oceanian_maori",
+              "oceanian_polynesian"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "preferred_methods": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "bake",
+              "roast",
+              "grill",
+              "saute",
+              "steam",
+              "pressure_cook",
+              "slow_cook",
+              "sous_vide",
+              "air_fry",
+              "raw"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "avoided_methods": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "bake",
+              "roast",
+              "grill",
+              "saute",
+              "steam",
+              "pressure_cook",
+              "slow_cook",
+              "sous_vide",
+              "air_fry",
+              "raw"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "ingredient_must_include": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ingredient_must_exclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sweeteners_allowed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "table_sugar",
+              "honey",
+              "maple_syrup",
+              "agave",
+              "stevia",
+              "sucralose",
+              "aspartame"
+            ]
+          }
+        },
+        "fat_sources_preferred": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "olive_oil",
+              "butter",
+              "ghee",
+              "avocado_oil",
+              "canola_oil",
+              "coconut_oil"
+            ]
+          }
+        }
+      }
+    },
+    "meal_logistics_household": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meals_per_day": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6
+        },
+        "meal_timing_windows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string"
+              },
+              "end": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "start",
+              "end"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "fasting_window": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "string"
+            },
+            "end": {
+              "type": "string"
+            },
+            "days_per_week": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 7
+            }
+          },
+          "additionalProperties": false
+        },
+        "snack_policy": {
+          "type": "object",
+          "properties": {
+            "allowed": {
+              "type": "boolean"
+            },
+            "max_per_day": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            }
+          },
+          "additionalProperties": false
+        },
+        "household_size": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        },
+        "portions": {
+          "type": "object",
+          "properties": {
+            "adult": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 20
+            },
+            "child": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 20
+            },
+            "toddler": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 20
+            }
+          },
+          "additionalProperties": false
+        },
+        "leftovers_policy": {
+          "type": "object",
+          "properties": {
+            "allow_leftovers": {
+              "type": "boolean"
+            },
+            "reuse_days": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 7
+            }
+          },
+          "additionalProperties": false
+        },
+        "meal_prep_time": {
+          "type": "string",
+          "enum": [
+            "5_10",
+            "10_20",
+            "20_40",
+            "40_60",
+            "over_60"
+          ]
+        },
+        "cooking_skill": {
+          "type": "string",
+          "enum": [
+            "beginner",
+            "intermediate",
+            "advanced"
+          ]
+        },
+        "equipment_available": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "stovetop",
+              "oven",
+              "microwave",
+              "blender",
+              "food_processor",
+              "instant_pot",
+              "air_fryer",
+              "grill",
+              "sous_vide",
+              "stand_mixer",
+              "toaster",
+              "bread_maker",
+              "waffle_iron"
+            ]
+          }
+        },
+        "storage_capacity": {
+          "type": "object",
+          "properties": {
+            "fridge": {
+              "type": "string",
+              "enum": [
+                "small",
+                "medium",
+                "large"
+              ]
+            },
+            "freezer": {
+              "type": "boolean"
+            },
+            "pantry": {
+              "type": "string",
+              "enum": [
+                "small",
+                "medium",
+                "large"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "budget_stores_inventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "budget_usd_per_day": {
+          "type": "number",
+          "minimum": 0
+        },
+        "budget_usd_per_week": {
+          "type": "number",
+          "minimum": 0
+        },
+        "cost_preference": {
+          "type": "string",
+          "enum": [
+            "value_focused",
+            "balanced",
+            "premium_organic"
+          ]
+        },
+        "primary_store": {
+          "type": "string",
+          "enum": [
+            "costco",
+            "bjs",
+            "sams_club",
+            "walmart",
+            "whole_foods",
+            "amazon_fresh",
+            "trader_joes",
+            "target",
+            "kroger",
+            "safeway",
+            "harris_teeter",
+            "publix",
+            "heb"
+          ]
+        },
+        "delivery_services": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "instacart",
+              "amazon_fresh",
+              "walmart_delivery",
+              "doordash_grocery",
+              "uber_eats_grocery"
+            ]
+          }
+        },
+        "store_location": {
+          "type": "string"
+        },
+        "inventory_sources_enabled": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pantry_inventory": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number",
+                "minimum": 0
+              },
+              "unit": {
+                "type": "string"
+              },
+              "expiration_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "lot": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "fridge_inventory": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number",
+                "minimum": 0
+              },
+              "unit": {
+                "type": "string"
+              },
+              "expiration_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "lot": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "freezer_inventory": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number",
+                "minimum": 0
+              },
+              "unit": {
+                "type": "string"
+              },
+              "expiration_date": {
+                "type": "string",
+                "format": "date"
+              },
+              "lot": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "cross_contamination_sensitivity": {
+          "type": "string",
+          "enum": [
+            "none",
+            "avoid_shared_equipment",
+            "strict_segregation"
+          ]
+        },
+        "packaging_preferences": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "plastic_free_priority",
+              "recyclable_only",
+              "bulk_sizes_allowed"
+            ]
+          }
+        }
+      }
+    },
+    "geo_season_sustainability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        },
+        "region_state": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "seasonality_priority": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "sustainability_focus": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "organic_preference": {
+          "type": "string",
+          "enum": [
+            "always",
+            "sometimes",
+            "never"
+          ]
+        },
+        "local_sourcing_radius": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000
+        }
+      }
+    },
+    "fitness_physical_ability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fitness_goals": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "weight_loss",
+              "muscle_gain",
+              "endurance",
+              "mobility",
+              "general_health",
+              "sport_specific"
+            ]
+          }
+        },
+        "activity_baseline": {
+          "type": "string",
+          "enum": [
+            "sedentary",
+            "lightly_active",
+            "moderately_active",
+            "very_active",
+            "athlete"
+          ]
+        },
+        "equipment": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "bodyweight",
+              "dumbbells",
+              "kettlebells",
+              "barbell",
+              "rack",
+              "cable_machine",
+              "resistance_bands",
+              "rower",
+              "treadmill",
+              "bike",
+              "elliptical",
+              "yoga_mat",
+              "plyo_box"
+            ]
+          }
+        },
+        "modalities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "strength",
+              "hypertrophy",
+              "hiit",
+              "liss_cardio",
+              "mobility",
+              "yoga",
+              "pilates",
+              "sport_drills"
+            ]
+          }
+        },
+        "session_duration": {
+          "type": "string",
+          "enum": [
+            "10_20",
+            "20_30",
+            "30_45",
+            "45_60",
+            "60_90"
+          ]
+        },
+        "sessions_per_week": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 14
+        },
+        "schedule_constraints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "day": {
+                "type": "string"
+              },
+              "time_range": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "injuries_limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "knee",
+              "hip",
+              "shoulder",
+              "wrist",
+              "elbow",
+              "lower_back",
+              "neck",
+              "ankle"
+            ]
+          }
+        },
+        "contraindications": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "pregnancy_supine_after_20_weeks",
+              "uncontrolled_hypertension",
+              "unstable_angina",
+              "recent_surgery",
+              "acute_illness"
+            ]
+          }
+        },
+        "readiness_markers": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "rpe_baseline": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10
+            },
+            "hrv_available": {
+              "type": "boolean"
+            }
+          }
+        },
+        "performance_baselines": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "vo2max": {
+              "type": "number"
+            },
+            "resting_hr_bpm": {
+              "type": "integer",
+              "minimum": 20,
+              "maximum": 220
+            },
+            "est_1rm_squat": {
+              "type": "number",
+              "minimum": 0
+            },
+            "est_1rm_bench": {
+              "type": "number",
+              "minimum": 0
+            },
+            "est_1rm_deadlift": {
+              "type": "number",
+              "minimum": 0
+            },
+            "est_1rm_press": {
+              "type": "number",
+              "minimum": 0
+            },
+            "pace_1mi_mm_ss": {
+              "type": "string"
+            },
+            "pace_5k_mm_ss": {
+              "type": "string"
+            },
+            "pace_10k_mm_ss": {
+              "type": "string"
+            },
+            "mobility_notes": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "sensors_integrations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "apple_health",
+              "google_fit",
+              "garmin",
+              "fitbit",
+              "oura",
+              "whoop",
+              "dexcom",
+              "libre"
+            ]
+          }
+        },
+        "data_streams": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "steps",
+              "hr",
+              "hrv",
+              "sleep_duration",
+              "sleep_stages",
+              "calories_out",
+              "cgm_glucose",
+              "weight_log"
+            ]
+          }
+        },
+        "sync_frequency": {
+          "type": "string",
+          "enum": [
+            "realtime",
+            "hourly",
+            "daily"
+          ]
+        }
+      }
+    },
+    "food_safety_compliance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "raw_undercooked_allowed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "sushi",
+              "rare_beef",
+              "runny_eggs"
+            ]
+          }
+        },
+        "pasteurization_required": {
+          "type": "boolean"
+        },
+        "exclude_high_mercury_fish": {
+          "type": "boolean"
+        },
+        "recall_checks_enabled": {
+          "type": "boolean"
+        },
+        "expiration_tolerance_days": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 7
+        },
+        "max_fridge_days": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "poultry": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 7
+            },
+            "beef": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 7
+            },
+            "fish": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 7
+            },
+            "leftovers": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 7
+            }
+          }
+        },
+        "min_cook_temps_c": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "poultry": {
+              "type": "integer",
+              "minimum": 50,
+              "maximum": 100
+            },
+            "ground_beef": {
+              "type": "integer",
+              "minimum": 50,
+              "maximum": 100
+            },
+            "fish": {
+              "type": "integer",
+              "minimum": 50,
+              "maximum": 100
+            }
+          }
+        }
+      }
+    },
+    "labeling_sourcing_ethics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "required_certifications": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "usda_organic",
+              "non_gmo_project",
+              "certified_kosher",
+              "certified_halal",
+              "certified_gluten_free"
+            ]
+          }
+        },
+        "animal_welfare": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "free_range",
+              "pasture_raised",
+              "cage_free"
+            ]
+          }
+        },
+        "fair_trade_priority": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        }
+      }
+    },
+    "personalization_content": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "brand_voice": {
+          "type": "string",
+          "enum": [
+            "concise",
+            "coach_like",
+            "friendly",
+            "clinical"
+          ]
+        },
+        "recipe_format": {
+          "type": "string",
+          "enum": [
+            "metric",
+            "imperial"
+          ]
+        },
+        "step_detail": {
+          "type": "string",
+          "enum": [
+            "compact",
+            "detailed"
+          ]
+        },
+        "substitution_policy": {
+          "type": "string",
+          "enum": [
+            "no_substitutions",
+            "allergen_safe_only",
+            "budget_driven",
+            "any_allowed"
+          ]
+        },
+        "content_languages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z]{2}$"
+          }
+        }
+      }
+    },
+    "app_features_ecommerce": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "auto_carting_enabled": {
+          "type": "boolean"
+        },
+        "auto_reorder_staples": {
+          "type": "boolean"
+        },
+        "auto_reorder_cadence": {
+          "type": "string",
+          "enum": [
+            "weekly",
+            "biweekly",
+            "monthly"
+          ]
+        },
+        "loyalty_program_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "delivery_windows": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "stripe_customer_id": {
+          "type": "string"
+        }
+      }
+    },
+    "data_governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "logging_level": {
+          "type": "string",
+          "enum": [
+            "minimal",
+            "standard",
+            "verbose"
+          ]
+        },
+        "analytics_anonymized": {
+          "type": "boolean"
+        },
+        "model_personalization_consent": {
+          "type": "boolean"
+        },
+        "data_residency": {
+          "type": "string",
+          "enum": [
+            "us",
+            "eu"
+          ]
+        }
+      }
+    },
+    "pantry_preference_memory": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "favorite_recipe_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "disliked_recipe_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "disliked_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "saved_meal_plan_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cookbook_projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string"
+              },
+              "frozen_date": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "account_locale_consent",
+    "demographics_anthropometrics",
+    "dietary_patterns",
+    "nutrition_targets",
+    "meal_logistics_household",
+    "budget_stores_inventory",
+    "food_safety_compliance",
+    "personalization_content"
+  ]
+}

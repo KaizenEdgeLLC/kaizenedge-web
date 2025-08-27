@@ -1,0 +1,19 @@
+{
+  "account_locale_consent": {
+    "user_id": "123e4567-e89b-12d3-a456-426614174000",
+    "units": "imperial",
+    "timezone": "America/New_York"
+  },
+  "demographics_anthropometrics": {
+    "birth_date": "1990-01-01",
+    "sex_at_birth": "female",
+    "height": 64,
+    "weight": 150
+  },
+  "dietary_patterns": { "general": "omnivore" },
+  "nutrition_targets": { "energy_kcal_per_day": 2000 },
+  "meal_logistics_household": { "meals_per_day": 3 },
+  "budget_stores_inventory": { "budget_usd_per_day": 20 },
+  "food_safety_compliance": { "pasteurization_required": true },
+  "personalization_content": { "brand_voice": "friendly" }
+}
