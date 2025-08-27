@@ -4,14 +4,18 @@ module.exports = {
   testEnvironment: "node",
   roots: ["<rootDir>/tests"],
   moduleFileExtensions: ["ts", "tsx", "js", "json"],
-  globals: {
-    "ts-jest": {
-      tsconfig: {
-        esModuleInterop: true,
-        resolveJsonModule: true,
-        module: "commonjs",
-        strict: true
+  // ✅ Modern, supported config: no deprecated `globals`
+  transform: {
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        tsconfig: {
+          esModuleInterop: true,
+          resolveJsonModule: true,
+          module: "commonjs",
+          strict: true
+        }
       }
-    }
+    ]
   }
 };

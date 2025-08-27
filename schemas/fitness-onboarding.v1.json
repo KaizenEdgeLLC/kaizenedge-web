@@ -1,107 +1,399 @@
-{ "$id":"https://kaizenedge.org/schemas/fitness-onboarding.v1.json",
+{
+  "$id": "https://kaizenedge.org/schemas/fitness-onboarding.v1.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title":"KaizenEdge Fitness & Nutrition Onboarding",
-  "type":"object",
-  "required":["userProfile","goals","environment","timeFrequency"],
-  "properties":{
-    "meta":{"type":"object","properties":{
-      "version":{"type":"string","const":"1.0.0"},
-      "timestamp":{"type":"string","format":"date-time"},
-      "source":{"type":"string","enum":["ios","android","web","import"]}
-    },"additionalProperties":false},
-    "userProfile":{"type":"object","required":["age","heightCm","weightKg"],
-      "properties":{"age":{"type":"integer","minimum":10,"maximum":100},
-        "heightCm":{"type":"number","minimum":80,"maximum":250},
-        "weightKg":{"type":"number","minimum":25,"maximum":400},
-        "biologicalSex":{"type":"string","enum":["female","male","intersex","unspecified"]},
-        "restingHrBpm":{"type":"integer","minimum":30,"maximum":120},
-        "conditions":{"type":"array","items":{"type":"string"}},
-        "injuries":{"type":"array","items":{"type":"string","enum":["knee","back","shoulder","wrist","ankle","other"]}},
-        "medicalClearance":{"type":"string","enum":["none","self-cleared","clinician-cleared","rehab-program"]}
-      },"additionalProperties":false},
-    "goals":{"type":"object","required":["primary"],
-      "properties":{"primary":{"type":"string","enum":["strength","endurance","weight_loss","mobility","general_fitness","rehab"]},
-        "secondary":{"type":"array","items":{"type":"string","enum":["strength","endurance","weight_loss","mobility","general_fitness","rehab"]},"maxItems":2,"uniqueItems":true},
-        "targetTimelineDays":{"type":"integer","minimum":7,"maximum":365}
-      },"additionalProperties":false},
-    "environment":{"type":"object","properties":{
-      "trainingLocation":{"type":"string","enum":["home","gym","outdoor","hybrid"]},
-      "equipment":{"type":"array","items":{"type":"string","enum":["none","bands","dumbbells","kettlebell","barbell","machines","treadmill","bike","rower","yoga_mat"]},"uniqueItems":true},
-      "stylePreferences":{"type":"array","items":{"type":"string","enum":["calisthenics","weightlifting","yoga","pilates","martial_arts","cross_training","walking_running","cycling","hiit","tai_chi"]},"uniqueItems":true},
-      "culturalTags":{"type":"array","items":{"type":"string","enum":["india_yoga","brazil_capoeira","us_crossfit","china_tai_chi","japan_karate","korea_taekwondo"]},"uniqueItems":true}
-    },"additionalProperties":false},
-    "timeFrequency":{"type":"object","required":["minutesPerSession","daysPerWeek"],
-      "properties":{"minutesPerSession":{"type":"integer","enum":[10,20,30,45,60,75,90]},
-        "daysPerWeek":{"type":"integer","minimum":1,"maximum":7},
-        "restStrategy":{"type":"string","enum":["auto","user_selected"]},
-        "intensityPreference":{"type":"string","enum":["gentle","moderate","high"]},
-        "impactLevel":{"type":"string","enum":["low","medium","high"]}
-      },"additionalProperties":false},
-    "nutrition":{"type":"object","properties":{
-      "dietaryPattern":{"type":"string","enum":["omnivore","vegetarian","vegan","pescetarian","halal","kosher","gluten_free","dairy_free","other"]},
-      "culturalFlavors":{"type":"array","items":{"type":"string","enum":["japan","korea","mexico","india","italy","mediterranean","caribbean","brazil","china","us"]},"uniqueItems":true},
-      "timingStyle":{"type":"string","enum":["early_bird","standard","night_owl"]},
-      "snackStyle":{"type":"string","enum":["minimal","balanced","gamer_snacks"]},
-      "proteinTargetGPerDay":{"type":"integer","minimum":20,"maximum":400},
-      "calorieTargetKcalPerDay":{"type":"integer","minimum":800,"maximum":6000}
-    },"additionalProperties":false},
-    "integrations":{"type":"object","properties":{
-      "devices":{"type":"array","items":{"type":"string","enum":["apple_health","google_fit","fitbit","garmin","none"]},"uniqueItems":true},
-      "metricsIngest":{"type":"array","items":{"type":"string","enum":["heart_rate","steps","sleep","calories_burned"]},"uniqueItems":true}
-    },"additionalProperties":false},
-    "behavior":{"type":"object","properties":{
-      "motivationArchetype":{"type":"string","enum":["self_improver","competitor","explorer","collector","unspecified"]},
-      "gamificationOptIn":{"type":"boolean"},
-      "notificationStyle":{"type":"string","enum":["clinical","system_update"]},
-      "streakTargetDays":{"type":"integer","minimum":1,"maximum":365},
-      "sessionFeedbackHistory":{"type":"array","items":{"type":"object","properties":{
-        "date":{"type":"string","format":"date"},
-        "perceivedDifficulty":{"type":"string","enum":["too_easy","just_right","too_hard","painful"]}
-      },"required":["date","perceivedDifficulty"],"additionalProperties":false}}
-    },"additionalProperties":false},
-    "oracle":{"type":"object","properties":{
-      "contraindications":{"type":"array","items":{"type":"string"}},
-      "clearedZones":{"type":"array","items":{"type":"string","enum":["zone1","zone2","zone3","zone4","zone5"]}}
-    },"additionalProperties":false},
-    "unlockEvaluation":{"type":"object","properties":{
-      "flags":{"type":"array","items":{"type":"string","enum":["freq_4plus","intensity_high","style_martial_or_calisthenics","timeline_90plus","flavor_japan_or_korea","snack_gamer","timing_night_owl","gamification_on","too_easy_trend","consistency_80_plus","tech_biofeedback_interest"]},"uniqueItems":true},
-      "flagCount":{"type":"integer","minimum":0,"maximum":20},
-      "ascensionCandidate":{"type":"boolean"},
-      "otherCandidates":{"type":"array","items":{"type":"string","enum":["cybernetic","zen","hero","adventure"]},"uniqueItems":true},
-      "unlockReason":{"type":"array","items":{"type":"string"}}
-    },"additionalProperties":false},
-    "planOutputs":{"type":"object","properties":{
-      "workoutPlan":{"type":"object","properties":{
-        "weeklySplit":{"type":"array","items":{"type":"string"}},
-        "sessions":{"type":"array","items":{"type":"object","properties":{
-          "day":{"type":"string"},
-          "blocks":{"type":"array","items":{"type":"object","properties":{
-            "name":{"type":"string"},"sets":{"type":"integer"},"reps":{"type":"string"},"restSec":{"type":"integer"},"intensity":{"type":"string"}
-          },"required":["name","sets","reps"]}}
-        },"required":["day","blocks"]}},
-        "signedReport":{"type":"object","properties":{
-          "indication":{"type":"string"},
-          "sources":{"type":"array","items":{"type":"string"}},
-          "version":{"type":"string"},
-          "signature":{"type":"string"},
-          "issuedAt":{"type":"string","format":"date-time"}
-        },"required":["indication","version","issuedAt"]}
-      }},
-      "mealPlan":{"type":"object","properties":{
-        "dailyMeals":{"type":"array","items":{"type":"object","properties":{
-          "name":{"type":"string"},"calories":{"type":"integer"},
-          "proteinG":{"type":"number"},"carbsG":{"type":"number"},"fatG":{"type":"number"},
-          "culturalTag":{"type":"string"}
-        },"required":["name","calories"]}},
-        "signedReport":{"type":"object","properties":{
-          "rationale":{"type":"string"},
-          "sources":{"type":"array","items":{"type":"string"}},
-          "version":{"type":"string"},
-          "signature":{"type":"string"},
-          "issuedAt":{"type":"string","format":"date-time"}
-        },"required":["version","issuedAt"]}
-      }}
-    },"additionalProperties":false}
+  "title": "KaizenEdge Fitness & Nutrition Onboarding",
+  "type": "object",
+  "required": ["userProfile", "goals", "environment", "timeFrequency"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "version": { "type": "string", "const": "1.2.0" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "source": { "type": "string", "enum": ["ios", "android", "web", "import"] }
+      },
+      "additionalProperties": false
+    },
+
+    "userProfile": {
+      "type": "object",
+      "required": ["age", "heightCm", "weightKg"],
+      "properties": {
+        "age": { "type": "integer", "minimum": 10, "maximum": 100 },
+        "heightCm": { "type": "number", "minimum": 80, "maximum": 250 },
+        "weightKg": { "type": "number", "minimum": 25, "maximum": 400 },
+        "biologicalSex": { "type": "string", "enum": ["female", "male", "intersex", "unspecified"] },
+        "restingHrBpm": { "type": "integer", "minimum": 30, "maximum": 120 },
+        "conditions": { "type": "array", "items": { "type": "string" } },
+        "injuries": { "type": "array", "items": { "type": "string", "enum": ["knee", "back", "shoulder", "wrist", "ankle", "other"] } },
+        "medicalClearance": { "type": "string", "enum": ["none", "self-cleared", "clinician-cleared", "rehab-program"] },
+        "medications": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+
+    "goals": {
+      "type": "object",
+      "required": ["primary"],
+      "properties": {
+        "primary": { "type": "string", "enum": ["strength", "endurance", "weight_loss", "mobility", "general_fitness", "rehab"] },
+        "secondary": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["strength", "endurance", "weight_loss", "mobility", "general_fitness", "rehab"] },
+          "maxItems": 2,
+          "uniqueItems": true
+        },
+        "targetTimelineDays": { "type": "integer", "minimum": 7, "maximum": 365 }
+      },
+      "additionalProperties": false
+    },
+
+    "environment": {
+      "type": "object",
+      "properties": {
+        "trainingLocation": { "type": "string", "enum": ["home", "gym", "outdoor", "hybrid"] },
+        "equipment": {
+          "type": "array",
+          "items": { "type": "string",
+            "enum": ["none", "bands", "dumbbells", "kettlebell", "barbell", "machines", "treadmill", "bike", "rower", "yoga_mat"]
+          },
+          "uniqueItems": true
+        },
+        "stylePreferences": {
+          "type": "array",
+          "items": { "type": "string",
+            "enum": ["calisthenics", "weightlifting", "yoga", "pilates", "martial_arts", "cross_training", "walking_running", "cycling", "hiit", "tai_chi"]
+          },
+          "uniqueItems": true
+        },
+        "culturalTags": {
+          "type": "array",
+          "items": { "type": "string",
+            "enum": ["india_yoga", "brazil_capoeira", "us_crossfit", "china_tai_chi", "japan_karate", "korea_taekwondo"]
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "timeFrequency": {
+      "type": "object",
+      "required": ["minutesPerSession", "daysPerWeek"],
+      "properties": {
+        "minutesPerSession": { "type": "integer", "enum": [10, 20, 30, 45, 60, 75, 90] },
+        "daysPerWeek": { "type": "integer", "minimum": 1, "maximum": 7 },
+        "restStrategy": { "type": "string", "enum": ["auto", "user_selected"] },
+        "intensityPreference": { "type": "string", "enum": ["gentle", "moderate", "high"] },
+        "impactLevel": { "type": "string", "enum": ["low", "medium", "high"] }
+      },
+      "additionalProperties": false
+    },
+
+    "nutrition": {
+      "type": "object",
+      "properties": {
+        "dietaryPattern": {
+          "type": "string",
+          "enum": ["omnivore", "vegetarian", "vegan", "pescetarian", "halal", "kosher", "gluten_free", "dairy_free", "low_fodmap", "other"]
+        },
+        "dietaryLaws": {
+          "type": "array",
+          "description": "Optional dietary law observances without storing religious identity.",
+          "items": { "type": "string", "enum": ["halal", "kosher", "jain", "sattvic", "buddhist_veg", "ital_rastafarian"] },
+          "uniqueItems": true
+        },
+        "culturalFlavors": {
+          "type": "array",
+          "items": { "type": "string",
+            "enum": ["japan", "korea", "mexico", "india", "italy", "mediterranean", "caribbean", "brazil", "china", "us", "middle_east", "thai", "vietnam"]
+          },
+          "uniqueItems": true
+        },
+        "timingStyle": { "type": "string", "enum": ["early_bird", "standard", "night_owl"] },
+        "snackStyle": { "type": "string", "enum": ["minimal", "balanced", "gamer_snacks"] },
+        "proteinTargetGPerDay": { "type": "integer", "minimum": 20, "maximum": 400 },
+        "calorieTargetKcalPerDay": { "type": "integer", "minimum": 800, "maximum": 6000 },
+        "allergens": {
+          "type": "array",
+          "items": { "type": "string",
+            "enum": ["peanut", "tree_nut", "milk", "egg", "wheat", "soy", "fish", "shellfish", "sesame", "gluten", "sulfites", "other"]
+          },
+          "uniqueItems": true
+        },
+        "foodAvoidances": {
+          "type": "array",
+          "description": "Non-allergen avoidances (e.g., pork, alcohol, caffeine).",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "diabetesSupport": {
+          "type": "object",
+          "description": "Optional diabetes tailoring (without PHI beyond what user provides).",
+          "properties": {
+            "type": { "type": "string", "enum": ["none", "type1", "type2", "gestational", "unspecified"] },
+            "carbLimitPerMealG": { "type": "integer", "minimum": 0, "maximum": 200 },
+            "preferLowGI": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "cookingProfile": {
+      "type": "object",
+      "properties": {
+        "chefStyle": { "type": "string", "enum": ["quick", "gourmet", "batch", "one_pot", "grill", "minimal_cleanup"] },
+        "skillLevel": { "type": "string", "enum": ["novice", "intermediate", "advanced"] },
+        "maxPrepMinutes": { "type": "integer", "minimum": 5, "maximum": 180 },
+        "budgetPerMealUSD": { "type": "number", "minimum": 0 },
+        "spiceTolerance": { "type": "string", "enum": ["mild", "medium", "hot"] },
+        "appliances": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["stove", "oven", "microwave", "air_fryer", "slow_cooker", "pressure_cooker", "grill", "blender"] },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "pantryAndShopping": {
+      "type": "object",
+      "properties": {
+        "pantryItems": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "preferredRetailers": {
+          "type": "array",
+          "items": { "type": "string",
+            "enum": ["whole_foods", "trader_joes", "kroger", "walmart", "costco", "aldi", "amazon_fresh", "instacart", "local_other"]
+          },
+          "uniqueItems": true
+        },
+        "storeZip": { "type": "string", "minLength": 3, "maxLength": 10 },
+        "allowSubstitutions": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+
+    "localization": {
+      "type": "object",
+      "properties": {
+        "country": { "type": "string" },
+        "region": { "type": "string" },
+        "seasonalityPreference": { "type": "string", "enum": ["in_season_only", "prefer_in_season", "no_preference"] }
+      },
+      "additionalProperties": false
+    },
+
+    "integrations": {
+      "type": "object",
+      "properties": {
+        "devices": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["apple_health", "google_fit", "fitbit", "garmin", "cgm", "none"] },
+          "uniqueItems": true
+        },
+        "metricsIngest": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["heart_rate", "steps", "sleep", "calories_burned", "glucose"] },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "behavior": {
+      "type": "object",
+      "properties": {
+        "motivationArchetype": { "type": "string", "enum": ["self_improver", "competitor", "explorer", "collector", "unspecified"] },
+        "gamificationOptIn": { "type": "boolean" },
+        "notificationStyle": { "type": "string", "enum": ["clinical", "system_update"] },
+        "streakTargetDays": { "type": "integer", "minimum": 1, "maximum": 365 },
+        "sessionFeedbackHistory": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": { "type": "string", "format": "date" },
+              "perceivedDifficulty": { "type": "string", "enum": ["too_easy", "just_right", "too_hard", "painful"] }
+            },
+            "required": ["date", "perceivedDifficulty"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "observanceConstraints": {
+      "type": "object",
+      "description": "Scheduling/diet constraints without storing religious identity. Explicit consent required in UI.",
+      "properties": {
+        "consentProvided": { "type": "boolean" },
+        "fastingWindows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "startDate": { "type": "string", "format": "date" },
+              "endDate": { "type": "string", "format": "date" },
+              "daylightOnly": { "type": "boolean" }
+            },
+            "required": ["startDate", "endDate"],
+            "additionalProperties": false
+          }
+        },
+        "restDays": { "type": "array", "items": { "type": "string", "enum": ["sun","mon","tue","wed","thu","fri","sat"] }, "uniqueItems": true },
+        "scheduleBlackouts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "from": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" },
+              "to": { "type": "string", "pattern": "^\\d{2}:\\d{2}$" }
+            },
+            "required": ["from", "to"],
+            "additionalProperties": false
+          }
+        },
+        "modestyConstraints": { "type": "string", "enum": ["none", "prefer_gender_separate", "home_only"] }
+      },
+      "additionalProperties": false
+    },
+
+    "oracle": {
+      "type": "object",
+      "description": "Deterministic safety layer inputs/decisions.",
+      "properties": {
+        "contraindications": { "type": "array", "items": { "type": "string" } },
+        "clearedZones": { "type": "array", "items": { "type": "string", "enum": ["zone1", "zone2", "zone3", "zone4", "zone5"] } },
+        "dietaryExclusions": { "type": "array", "items": { "type": "string" } },
+        "schedulingExclusions": { "type": "array", "items": { "type": "string" } },
+        "criticalAlerts": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+
+    "unlockEvaluation": {
+      "type": "object",
+      "properties": {
+        "flags": {
+          "type": "array",
+          "items": { "type": "string",
+            "enum": [
+              "freq_4plus", "intensity_high", "style_martial_or_calisthenics", "timeline_90plus",
+              "flavor_japan_or_korea", "snack_gamer", "timing_night_owl",
+              "gamification_on", "too_easy_trend", "consistency_80_plus",
+              "tech_biofeedback_interest"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "flagCount": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "ascensionCandidate": { "type": "boolean" },
+        "otherCandidates": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["cybernetic", "zen", "hero", "adventure"] },
+          "uniqueItems": true
+        },
+        "unlockReason": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+
+    "planOutputs": {
+      "type": "object",
+      "properties": {
+        "workoutPlan": {
+          "type": "object",
+          "properties": {
+            "weeklySplit": { "type": "array", "items": { "type": "string" } },
+            "sessions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "day": { "type": "string" },
+                  "blocks": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "type": "string" },
+                        "sets": { "type": "integer" },
+                        "reps": { "type": "string" },
+                        "restSec": { "type": "integer" },
+                        "intensity": { "type": "string" }
+                      },
+                      "required": ["name", "sets", "reps"]
+                    }
+                  }
+                },
+                "required": ["day", "blocks"]
+              }
+            },
+            "signedReport": {
+              "type": "object",
+              "properties": {
+                "indication": { "type": "string" },
+                "sources": { "type": "array", "items": { "type": "string" } },
+                "version": { "type": "string" },
+                "signature": { "type": "string" },
+                "issuedAt": { "type": "string", "format": "date-time" }
+              },
+              "required": ["indication", "version", "issuedAt"]
+            }
+          }
+        },
+        "mealPlan": {
+          "type": "object",
+          "properties": {
+            "dailyMeals": {
+              "type": "array",
+              "items": { "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "calories": { "type": "integer" },
+                  "proteinG": { "type": "number" },
+                  "carbsG": { "type": "number" },
+                  "fatG": { "type": "number" },
+                  "culturalTag": { "type": "string" }
+                },
+                "required": ["name", "calories"]
+              }
+            },
+            "shoppingList": {
+              "type": "array",
+              "description": "Generated shopping list with optional retailer mapping & substitutions.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "item": { "type": "string" },
+                  "quantity": { "type": "string" },
+                  "preferredRetailer": { "type": "string" },
+                  "substitution": { "type": "string" }
+                },
+                "required": ["item", "quantity"],
+                "additionalProperties": false
+              }
+            },
+            "signedReport": {
+              "type": "object",
+              "properties": {
+                "rationale": { "type": "string" },
+                "sources": { "type": "array", "items": { "type": "string" } },
+                "version": { "type": "string" },
+                "signature": { "type": "string" },
+                "issuedAt": { "type": "string", "format": "date-time" },
+                "exclusionsApplied": { "type": "array", "items": { "type": "string" } }
+              },
+              "required": ["version", "issuedAt"]
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
   },
-  "additionalProperties":false
+  "additionalProperties": false
 }
