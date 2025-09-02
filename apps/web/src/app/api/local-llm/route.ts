@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-4o-mini";
 
@@ -28,8 +27,7 @@ export async function POST(req: Request) {
         model,
         messages: [{ role: "user", content: prompt }],
         temperature: 0.2
-      }),
-      // Vercel/Edge safe timeout/backoff handled by platform; keep it simple here
+      })
     });
 
     if (!r.ok) {
