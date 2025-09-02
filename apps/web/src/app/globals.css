@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+
+@layer base {
+  html, body { @apply bg-ke-bg text-ke-text antialiased; }
+  h1,h2,h3 { @apply tracking-tight text-ke-text; }
+  a { @apply text-ke-primary-600 hover:text-ke-primary-700 underline-offset-2 hover:underline; }
+  input, textarea, select { @apply bg-white text-ke-text; }
+}
+
+@layer components {
+  .ke-container { @apply container; }
+  .ke-card { @apply rounded-xl bg-ke-surface shadow-sm ring-1 ring-ke-border; }
+  .ke-btn { @apply inline-flex items-center justify-center rounded-lg bg-ke-primary-600 px-4 py-2 text-white hover:bg-ke-primary-700 active:opacity-90 transition; }
+  .ke-input { @apply w-full rounded-lg border border-ke-border bg-white px-3 py-2 text-ke-text placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-ke-primary-500; }
+  .ke-muted { @apply text-ke-subtext; }
+}

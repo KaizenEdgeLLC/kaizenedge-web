@@ -1,0 +1,235 @@
+$ next dev --turbopack --port "3000"
+   ▲ Next.js 15.5.2 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.217:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 531ms
+ ✓ Compiled /api/health in 481ms
+ GET /api/health 200 in 758ms
+ ○ Compiling /chat ...
+ ✓ Compiled /chat in 775ms
+ ⨯ ./apps/web/src/app/chat/page.tsx:92:5
+Parsing ecmascript source code failed
+[0m [90m 90 |[39m setopt interactivecomments
+ [90m 91 |[39m
+[31m[1m>[22m[39m[90m 92 |[39m cat [33m>[39m src[33m/[39mapp[33m/[39mchat[33m/[39mpage[33m.[39mtsx [33m<<[39m[32m'EOF'[39m
+ [90m    |[39m     [31m[1m^[22m[39m
+ [90m 93 |[39m [32m"use client"[39m[33m;[39m
+ [90m 94 |[39m [36mimport[39m { useEffect[33m,[39m useRef[33m,[39m useState } [36mfrom[39m [32m"react"[39m[33m;[39m
+ [90m 95 |[39m[0m
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+
+ ✓ Compiled /_error in 403ms
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Error [ModuleBuildError]: ./apps/web/src/app/chat/page.tsx:92:5
+Parsing ecmascript source code failed
+[0m [90m 90 |[39m setopt interactivecomments
+ [90m 91 |[39m
+[31m[1m>[22m[39m[90m 92 |[39m cat [33m>[39m src[33m/[39mapp[33m/[39mchat[33m/[39mpage[33m.[39mtsx [33m<<[39m[32m'EOF'[39m
+ [90m    |[39m     [31m[1m^[22m[39m
+ [90m 93 |[39m [32m"use client"[39m[33m;[39m
+ [90m 94 |[39m [36mimport[39m { useEffect[33m,[39m useRef[33m,[39m useState } [36mfrom[39m [32m"react"[39m[33m;[39m
+ [90m 95 |[39m[0m
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+
+    at <unknown> (ModuleBuildError: ./apps/web/src/app/chat/page.tsx:92:5)
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection: [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection:  [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ GET /chat 500 in 1276ms
+ GET /chat 500 in 19ms
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection: [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection:  [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection: [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection:  [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection: [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection:  [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ GET /api/health 500 in 50ms
+ GET /api/health 500 in 10ms
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection: [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection:  [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ✓ Compiled /api/local-llm in 41ms
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection: [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection:  [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection: [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection:  [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ GET /api/local-llm 500 in 82ms
+ GET /api/local-llm 500 in 9ms
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection: [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection:  [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection: [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection:  [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection: [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection:  [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://react.dev/link/invalid-hook-call for tips about how to debug and fix this problem.
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ POST /api/local-llm 500 in 39ms
+ POST /api/local-llm 500 in 9ms
+[TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection: [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]
+ ⨯ unhandledRejection:  [TypeError: Cannot read properties of null (reading 'useInsertionEffect')]

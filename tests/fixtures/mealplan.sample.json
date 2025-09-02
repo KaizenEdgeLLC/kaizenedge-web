@@ -1,0 +1,6 @@
+{
+  "dailyMeals": [
+    { "name": "Bowl", "ingredients": [ { "item": "Basmati", "qty": "1 lb" }, { "item": "Chicken breast", "qty": "2 lb" } ] },
+    { "name": "Snack", "ingredients": [ { "item": "Greek_yogurt", "qty": "2 cups" } ] }
+  ]
+}

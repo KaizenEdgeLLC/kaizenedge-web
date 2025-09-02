@@ -1,0 +1,11 @@
+"use client";
+export default function GlobalError({ error }: { error: unknown }) {
+  return (
+    <html>
+      <body style={{padding:"2rem"}}>
+        <h1 style={{fontSize:"1.5rem", fontWeight:600}}>Something went wrong</h1>
+        <p style={{color:"#666", marginTop:"0.5rem"}}>Please try again in a moment.</p>
+      </body>
+    </html>
+  );
+}

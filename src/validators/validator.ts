@@ -14,6 +14,10 @@ export function assertOnboarding(input: unknown): FitnessOnboarding {
     const errs = (validateOnboarding.errors ?? []).map(formatAjvError).join("\n");
     throw new Error(`Onboarding payload failed validation:\n${errs}`);
   }
+    const up = (input as any).userProfile || {};
+  if (typeof up.age !== "number" || up.age < 13 || up.age > 100) {
+    throw new Error("Onboarding payload failed validation:\n• age must be >= 13 and <= 100");
+  }
   return input as FitnessOnboarding;
 }
 

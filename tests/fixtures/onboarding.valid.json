@@ -1,0 +1,7 @@
+{
+  "meta": { "version": "1.2.0", "timestamp": "2025-08-27T10:00:00Z", "source": "ios" },
+  "userProfile": { "age": 35, "heightCm": 178, "weightKg": 86, "injuries": ["knee"] },
+  "goals": { "primary": "strength", "targetTimelineDays": 90 },
+  "timeFrequency": { "minutesPerSession": 45, "daysPerWeek": 5 },
+  "nutrition": { "allergens": ["peanut"], "dietaryLaws": ["halal"], "foodAvoidances": ["alcohol"] }
+}
