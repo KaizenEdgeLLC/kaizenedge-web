@@ -1,14 +1,27 @@
 name: CI
 on:
-  push: { branches: [ main ] }
-  pull_request: {}
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-        with: { bun-version: 1.2.21 }
-      - run: bun install
-      - run: bunx turbo run lint --continue
-      - run: bunx turbo run build --continue
+      - name: Use Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      - name: Enable Corepack / pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.15.0 --activate
+          pnpm -v
+      - name: Install deps (workspace)
+        run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm -w dlx eslint .
+      - name: Build web app
+        run: pnpm -w dlx turbo run build --filter=apps/web --no-cache
