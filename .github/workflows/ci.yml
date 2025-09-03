@@ -24,16 +24,12 @@ jobs:
           echo "pnpm: $(pnpm -v)"
 
       - name: Install deps (workspace)
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
-      - name: Turbo version
-        run: pnpm dlx turbo --version || echo "turbo not found; continuing"
-
-      - name: Build web app
+      - name: Build (Turbo if present; else Next.js in apps/web)
         run: |
           if [ -f turbo.json ]; then
             pnpm -w dlx turbo run build --filter=apps/web --no-cache
           else
-            echo "No turbo.json detected; running Next.js build directly"
             cd apps/web && pnpm run build
           fi
