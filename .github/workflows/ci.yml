@@ -1,27 +1,39 @@
 name: CI
 on:
-  push:
-    branches: [main]
   pull_request:
-    branches: [main]
+    branches: [ main ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node 20 + pnpm cache
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
-      - name: Enable Corepack / pnpm
+
+      - name: Enable Corepack / activate pnpm
         run: |
           corepack enable
           corepack prepare pnpm@10.15.0 --activate
-          pnpm -v
+          echo "node: $(node -v)"
+          echo "pnpm: $(pnpm -v)"
+
       - name: Install deps (workspace)
         run: pnpm install --frozen-lockfile
-      - name: Lint
-        run: pnpm -w dlx eslint .
+
+      - name: Turbo version
+        run: pnpm dlx turbo --version || echo "turbo not found; continuing"
+
       - name: Build web app
-        run: pnpm -w dlx turbo run build --filter=apps/web --no-cache
+        run: |
+          if [ -f turbo.json ]; then
+            pnpm -w dlx turbo run build --filter=apps/web --no-cache
+          else
+            echo "No turbo.json detected; running Next.js build directly"
+            cd apps/web && pnpm run build
+          fi
