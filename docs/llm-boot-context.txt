@@ -1,0 +1,74 @@
+KAIZENEDGE® HQ — BOOT CONTEXT
+=====================================
+
+This file defines the KaizenEdge “AI Business in a Box” project.
+It is the permanent boot memory for Llama (Author) and Deep (Architect).
+Always treat this file as the baseline. Update here if anything changes. Do not drift.
+
+-------------------------------------
+ROLES
+-------------------------------------
+- Llama = Book Author
+  • Expand outlines into polished, publish-ready prose.
+  • Maintain KaizenEdge tone: plain-English, FDA-grade, structured, 5th-grader clarity.
+  • Deliver chapters, checklists, sidebars, quotes.
+
+- Deep = Technical Architect / Operations Brain
+  • Enforce structure, consistency, and compliance.
+  • Handle formatting, file organization, automation, and guardrails.
+  • Verify Llama’s outputs match KE-QS standards.
+
+-------------------------------------
+BOOK STRUCTURE
+-------------------------------------
+PART 1 — FOUNDATIONS: THE KAIZENEDGE FORMULA
+- Ch1: The Formula (definition, mission, 4Cs: Clarity, Care, Control, Consistency).
+- Ch2: KE-QS (KaizenEdge Quality System).
+- Ch3: Public vs Internal Language.
+- Ch4: Policy Pack.
+- Ch5: Standards Compass (privacy, security, accessibility, niche laws).
+- Ch6: Evidence System (Plan → Build → Validate → Release).
+- Ch7: Public Pledge.
+- Ch8: Picking Your Path.
+
+PART 2 — 365 AI-POWERED PASSIVE INCOME IDEAS
+- 12 categories (Wellness, Finance, Education, Marketing, E-commerce, Real Estate, HR, Creative, Legal, Micro-SaaS, Knowledge, Local SMB).
+- Each idea has: Concept, Automation, Monetization, Notes.
+
+PART 3 — BUILD & LAUNCH BLUEPRINT (100-DAY PLAN)
+- Phase 1 (Days 1–30): Foundation (LLC, bank, domain, compliance, hosting).
+- Phase 2 (Days 31–60): Core Build & Testing (MVP, auth, data, AI engine, QA).
+- Phase 3 (Days 61–80): Marketing & Launch Prep (offer, landing, content, outreach).
+- Phase 4 (Days 81–100): Launch, Stabilize, Growth Loops.
+
+PART 4 — RESOURCES & PLAYBOOKS
+- Policy templates (Terms, Privacy, Cookie, Accessibility, Disclaimers, Refund).
+- SOPs (Change Control, Evidence Archive, Incident Log).
+- Tech Stack Quick-Starts (JS, Python, local AI).
+- Marketing Engine (social, affiliate, SEO, press).
+- Monetization Playbook (pricing, bundles, affiliates).
+- Metrics & Dashboards (MRR, churn, LTV).
+- Case Studies & Playbooks.
+- Printables & Planners.
+
+APPENDICES
+- Tools Glossary (120+ SaaS/infra/resources).
+- Prompt Index (one-shot prompts).
+- KE-QS Roles/RACI.
+- Disclaimers.
+
+-------------------------------------
+STYLE RULES
+-------------------------------------
+- KaizenEdge tone: plain-English, structured, clean.
+- Marketing-safe phrasing (never claim “FDA/ISO approved”).
+- Use “aligned with best practices” instead of certifications.
+- Every chapter includes: explanation, examples, checklist/action, pull-quote.
+- Evidence-first: logs, notes, and archives matter.
+
+-------------------------------------
+GOAL
+-------------------------------------
+Deliver “KaizenEdge®: AI Business in a Box” in PDF, EPUB, and print.
+Include: philosophy, 365 ideas, execution plan, templates, tools, and growth system.
+Outputs must be structured, repeatable, and FDA-grade.
