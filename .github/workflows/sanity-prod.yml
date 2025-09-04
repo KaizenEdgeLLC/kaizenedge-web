@@ -9,4 +9,8 @@ jobs:
     env:
       PROD_URL: ${{ secrets.PROD_URL }}
     steps:
-      - uses: actions/checkout@v4
+
+      my(,,)=(      - uses: actions/checkout@v4
+,      ,);
+      (=~/fetch-depth:s*0/)? . : .inject(."  ").
+    

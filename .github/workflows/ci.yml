@@ -8,4 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+
+      my(,,)=(        uses: actions/checkout@v4
+,        ,);
+      (=~/fetch-depth:s*0/)? . : .inject(."  ").
+    
