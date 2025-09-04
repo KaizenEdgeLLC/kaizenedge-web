@@ -6,8 +6,4 @@ jobs:
   eval:
     runs-on: macos-latest
     steps:
-
-      my(,,)=(      - uses: actions/checkout@v4
-,      ,);
-      (=~/fetch-depth:s*0/)? . : .inject(."  ").
-    
+      - uses: actions/checkout@v4
