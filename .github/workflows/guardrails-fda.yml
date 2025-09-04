@@ -9,5 +9,3 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Placeholder eval
-        run: echo "✅ Guardrails FDA placeholder passing check"
