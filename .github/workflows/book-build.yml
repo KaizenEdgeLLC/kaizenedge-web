@@ -30,6 +30,7 @@ jobs:
             texlive-fonts-recommended \
             texlive-xetex
       - name: Build book
+        shell: bash
         run: |
           chmod +x automation/scripts/ke-buildbook.zsh
           automation/scripts/ke-buildbook.zsh
