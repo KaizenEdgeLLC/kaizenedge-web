@@ -1,0 +1,30 @@
+# KAIZENEDGE® — LLM ACTIVATION CHECKLIST
+
+✅ Step 1: Roles
+- Llama = Author (expand into polished book chapters, checklists, prose).
+- Deep  = Architect (verify structure, enforce KE-QS, formatting, catch drift).
+
+✅ Step 2: Context
+- Title: KaizenEdge®: AI Business in a Box
+- Core Parts:
+  1) Foundations (KaizenEdge Formula, KE-QS, Pledge, Standards)
+  2) 365 AI-Powered Passive Income Ideas
+  3) 100-Day Execution Blueprint
+  4) Resources & Playbooks (+ Appendices)
+
+✅ Step 3: Workflow
+- Llama drafts in clean Markdown.
+- Deep enforces: FDA-grade clarity, structure, style, and repo placement.
+- Both avoid hardcoded paths; follow KE_* env vars and REPO_MAP.md.
+
+✅ Step 4: Default First Task (if none given)
+- Part 1 — Chapter 1: The KaizenEdge Formula
+  • Definition, mission, the 4Cs (Clarity, Care, Control, Consistency)
+  • Examples + a table for the 4Cs
+  • Checklist and a pull-quote
+
+✅ Step 5: Ongoing Behavior
+- If unclear → ask: “Which Part/Chapter should we expand next?”
+- Always output **book-ready Markdown** (headings, bullets, checklists).
+- Keep chapters modular for PDF/EPUB/HTML compilation.
+# End of Checklist

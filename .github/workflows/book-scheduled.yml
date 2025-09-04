@@ -1,0 +1,50 @@
+name: Scheduled KaizenEdge Book Build
+on:
+  schedule:
+    - cron: "*/15 * * * *"  # every 15 minutes (GitHub may delay slightly)
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+      - name: Install TeX (for PDF)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-xetex
+      - name: Build book (main)
+        run: |
+          chmod +x automation/scripts/ke-buildbook.zsh
+          automation/scripts/ke-buildbook.zsh
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: kaizenedge-book
+          path: |
+            books/kaizenedge-guide/build/KaizenEdge_Guide.pdf
+            books/kaizenedge-guide/build/KaizenEdge_Guide.epub
+            books/kaizenedge-guide/build/KaizenEdge_Guide.html
+      - name: Create/Update rolling release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest-book
+          name: Latest KaizenEdge Book (rolling)
+          prerelease: true
+          files: |
+            books/kaizenedge-guide/build/KaizenEdge_Guide.pdf
+            books/kaizenedge-guide/build/KaizenEdge_Guide.epub
+            books/kaizenedge-guide/build/KaizenEdge_Guide.html
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
