@@ -1,0 +1,4 @@
+01-foundations.md
+02-365-ideas-overview.md
+03-100-day-blueprint.md
+04-resources-playbooks.md
