@@ -1,0 +1,16 @@
+name: KaizenEdge Ping
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: ["**"]
+  workflow_dispatch:
+jobs:
+  ping:
+    name: ping
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: echo ping
+        run: echo "CI is alive on ${{ github.ref }} at ${{ github.sha }}"

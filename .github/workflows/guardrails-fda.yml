@@ -1,10 +1,10 @@
-name: CI
+name: Guardrails FDA Eval
 on:
   pull_request:
     branches: [ main ]
 
 jobs:
-  build:
+  eval:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
