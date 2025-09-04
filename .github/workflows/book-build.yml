@@ -1,0 +1,42 @@
+name: Build KaizenEdge Book
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'books/kaizenedge-guide/**'
+      - 'automation/scripts/ke-buildbook.zsh'
+      - '.github/workflows/book-build.yml'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'books/kaizenedge-guide/**'
+      - 'automation/scripts/ke-buildbook.zsh'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+      - name: Install TeX (for PDF)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-xetex
+      - name: Build book
+        run: |
+          chmod +x automation/scripts/ke-buildbook.zsh
+          automation/scripts/ke-buildbook.zsh
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: kaizenedge-book
+          path: |
+            books/kaizenedge-guide/build/KaizenEdge_Guide.pdf
+            books/kaizenedge-guide/build/KaizenEdge_Guide.epub
+            books/kaizenedge-guide/build/KaizenEdge_Guide.html
